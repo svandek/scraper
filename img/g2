@@ -1,0 +1,424 @@
+digraph {
+	node [color=black fillcolor=lightgray fontcolor=black fontname=Helvetica shape=square style=filled]
+	edge [arrowhead=open color=black fontcolor=black fontname=Courier fontsize=12 style=dashed]
+	0 [label="dahari.tgsrv.nl
+
+qualitytime
+tekenjetuin-staging.ini
+staging.ini
+
+[webserver]
+[database]
+[elasticsearch]
+[psql]
+"]
+	1 [label="quorum.tgsrv.nl
+
+mandhari-production.ini
+
+[webserver]
+[database]
+[nodejs]
+"]
+	2 [label="malimu.tgsrv.nl
+
+productprices
+localhero-production.ini
+production.ini
+
+[webserver]
+[elasticsearch]
+"]
+	3 [label="propter.tgsrv.nl
+
+productprices
+release-notesproductprices
+release-notes-production.ini
+production.iniproduction.ini
+production.ini
+
+[backup]
+[webserver]
+[backup]
+[nodejs]
+"]
+	4 [label="idadi.tgsrv.nl
+
+tukio
+weblate-production.ini
+production.ini
+
+[tukio]
+[webserver]
+"]
+	5 [label="jambo.tgsrv.nl
+
+jambo-testing.ini
+
+[webserver]
+"]
+	6 [label="eleka.tgsrv.nl
+
+shmira-production.ini
+
+[database]
+"]
+	7 [label="chafua.tgsrv.nl
+
+tekenjetuin-staging.ini
+
+[database]
+"]
+	8 [label="taabu.tgsrv.nl
+
+tekenjetuin-production.ini
+
+[web]
+[elasticsearch]
+"]
+	9 [label="oppa.tgsrv.nl
+
+asp-staging.ini
+
+[webserver]
+[ftpserver]
+[database]
+[elasticsearch]
+"]
+	10 [label="askja.tgsrv.nl
+
+asp-production.ini
+
+[webserver]
+[ftpserver]
+[database]
+[elasticsearch]
+"]
+	11 [label="yetu.tgsrv.nl
+
+yetu-production.ini
+
+[webserver]
+"]
+	12 [label="xoras.tgsrv.nl
+
+xoras-inventory.ini
+
+[webserver]
+"]
+	13 [label="sheria.tgsrv.nl
+
+hekkelman-production.ini
+
+[webserver]
+[elasticsearch]
+"]
+	14 [label="najuma.tgsrv.nl
+
+slash-production.ini
+
+[webserver]
+[nodejs]
+"]
+	15 [label="biblio.tgsrv.nl
+
+biblio-inventory.ini
+
+[web]
+[mysql]
+"]
+	16 [label="heri.tgsrv.nl
+
+jira-production.ini
+
+[webserver]
+"]
+	17 [label="gati.tgsrv.nl
+
+research-panel
+tweedegolfresearch-panel
+tweedegolf-production.ini
+production.iniproduction.ini
+production.ini
+
+[webserver]
+[nodejs]
+[webserver]
+[ruby]
+"]
+	18 [label="vunja.tgsrv.nl
+
+pas-reform-staging.ini
+
+[webserver]
+[database]
+[elasticsearch]
+[frontend]
+[backend]
+"]
+	19 [label="wangwa.tgsrv.nl
+
+pas-reform-preview.ini
+
+[webserver]
+[database]
+[elasticsearch]
+[frontend]
+[backend]
+"]
+	20 [label="flog.tgsrv.nl
+
+logs-production.ini
+
+[logstash]
+[elasticsearch]
+[kibana]
+[prometheus]
+"]
+	21 [label="cache02.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	22 [label="db01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	23 [label="web01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	24 [label="public01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	25 [label="proxy01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	26 [label="search01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	27 [label="files01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	28 [label="monitoring01.servers.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	29 [label="cache01.test.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	30 [label="db01.test.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	31 [label="public01.test.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	32 [label="web01.test.planviewer.nl
+
+logs-production.ini
+
+[log]
+"]
+	33 [label="db01.staging.planpreview.nl
+
+logs-production.ini
+
+[log]
+"]
+	34 [label="web01.staging.planpreview.nl
+
+logs-production.ini
+
+[log]
+"]
+	35 [label="cache01.staging.planpreview.nl
+
+logs-production.ini
+
+[log]
+"]
+	36 [label="public01.staging.planpreview.nl
+
+logs-production.ini
+
+[log]
+"]
+	37 [label="kificho.tgsrv.nl
+
+logs-production.ini
+
+[log]
+"]
+	38 [label="ubora.tgsrv.nl
+
+logs-production.ini
+
+[log]
+"]
+	2 -> 3 [label="[backup]
+"]
+	4 -> 3 [label="[backup]
+"]
+	5 -> 3 [label="[backup]
+"]
+	5 -> 6 [label="[database]
+"]
+	5 -> 3 [label="[backup]
+"]
+	5 -> 6 [label="[database]
+"]
+	5 -> 7 [label="[database]
+"]
+	5 -> 3 [label="[backup]
+"]
+	8 -> 7 [label="[psql]
+"]
+	8 -> 3 [label="[backup]
+"]
+	8 -> 3 [label="[backup]
+"]
+	10 -> 6 [label="[database]
+"]
+	10 -> 6 [label="[database]
+"]
+	10 -> 6 [label="[database]
+"]
+	10 -> 6 [label="[database]
+"]
+	11 -> 3 [label="[backup]
+"]
+	12 -> 3 [label="[backup]
+"]
+	13 -> 6 [label="[database]
+"]
+	14 -> 6 [label="[database]
+"]
+	14 -> 6 [label="[database]
+"]
+	14 -> 3 [label="[backup]
+"]
+	15 -> 3 [label="[backup]
+"]
+	15 -> 3 [label="[backup]
+"]
+	16 -> 6 [label="[database]
+"]
+	17 -> 6 [label="[database]
+"]
+	17 -> 6 [label="[database]
+"]
+	18 -> 3 [label="[backup]
+"]
+	19 -> 3 [label="[backup]
+"]
+	19 -> 6 [label="[database]
+"]
+	19 -> 6 [label="[database]
+"]
+	19 -> 6 [label="[database]
+"]
+	19 -> 6 [label="[database]
+"]
+	20 -> 3 [label="[backup]
+"]
+	21 -> 20 [label="[log]
+"]
+	22 -> 20 [label="[log]
+"]
+	23 -> 20 [label="[log]
+"]
+	24 -> 20 [label="[log]
+"]
+	25 -> 20 [label="[log]
+"]
+	26 -> 20 [label="[log]
+"]
+	27 -> 20 [label="[log]
+"]
+	28 -> 20 [label="[log]
+"]
+	29 -> 20 [label="[log]
+"]
+	30 -> 20 [label="[log]
+"]
+	31 -> 20 [label="[log]
+"]
+	32 -> 20 [label="[log]
+"]
+	33 -> 20 [label="[log]
+"]
+	34 -> 20 [label="[log]
+"]
+	35 -> 20 [label="[log]
+"]
+	36 -> 20 [label="[log]
+"]
+	10 -> 20 [label="[log]
+"]
+	0 -> 20 [label="[log]
+"]
+	9 -> 20 [label="[log]
+"]
+	7 -> 20 [label="[log]
+"]
+	6 -> 20 [label="[log]
+"]
+	20 -> 20 [label="[log]
+"]
+	17 -> 20 [label="[log]
+"]
+	16 -> 20 [label="[log]
+"]
+	4 -> 20 [label="[log]
+"]
+	37 -> 20 [label="[log]
+"]
+	2 -> 20 [label="[log]
+"]
+	15 -> 20 [label="[log]
+"]
+	14 -> 20 [label="[log]
+"]
+	3 -> 20 [label="[log]
+"]
+	1 -> 20 [label="[log]
+"]
+	13 -> 20 [label="[log]
+"]
+	8 -> 20 [label="[log]
+"]
+	38 -> 20 [label="[log]
+"]
+	18 -> 20 [label="[log]
+"]
+	19 -> 20 [label="[log]
+"]
+}
