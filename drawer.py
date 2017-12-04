@@ -13,36 +13,24 @@ digraph = functools.partial(gv.Digraph, format='svg')
 projectDir = '/home/ss/Projects/inventory/inventories/'
 projects = Filer.projectRetriever(projectDir)
 srvNr = 0
-print '===================================================='
-print 'Projects: ',projects
 
 for project in projects:
     inventories = Filer.invRetriever(projectDir, project)
-    print 'Inventories: ',inventories
     for inventory in inventories:
-        print 'Project: ',project
-        print 'Inventory: ',inventory
-        print '-------------------------------------------------'
         if Filer.isFileValid(projectDir, project, inventory):
             srvNr += 1   
             objFile = Filer(project, inventory)
-            print 'File created: ',objFile
             srvName = objFile.getSrvName()
-            print 'srvName: ',srvName
             srvRoles = objFile.getSrvRoles()
-            print 'srvRoles: ',srvRoles
             addSrvs = objFile.getAddSrvs()
-            print 'addSrvs: ',addSrvs
             addRoles = objFile.getAddRoles()
-            print 'addRoles: ',addRoles
             projectName = objFile.getProject()
-            print 'project: ',projectName
             if Server.serverExists(srvName):
-                print 'update server'
+                Server.serverUpdater(srvName, srvRoles, projectName)
+                print 'serverUpdater call'
+                # update server
             else:    
                 objServer = Server(srvName, srvRoles, addSrvs, addRoles, projectName)
-                print 'Server created: ',objServer
-                print '===================================================='
     
 g1 = functions.add_edges(
     functions.add_nodes(digraph(),

@@ -24,6 +24,7 @@ class Filer:
         for line in lines:
             if lines[0] in self.fileExcludes:
                 invFile.close()
+                return
             # append file output to arrays
             if lines[1] == self.srvName:
                 self.srvRoles.append(lines[0])         
@@ -88,6 +89,6 @@ class Filer:
         return self.addRoles
 
     def getProject(self):
-        projectName = self.project + '-' + self.inventory 
+        projectName = self.project + '-' + self.inventory + '\n'
         # print 'PROJECT: ',projectName
         return projectName   

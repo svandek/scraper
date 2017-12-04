@@ -4,61 +4,78 @@ digraph {
 	0 [label="malimu.tgsrv.nl
 
 tulsie-production.ini
+ixp-production.ini
+
 [webserver]
 "]
 	1 [label="eleka.tgsrv.nl
 
 tulsie-production.ini
+postgresql-production.ini
+
 [database]
 "]
 	2 [label="dahari.tgsrv.nl
 
-tulsie-production.initulsie-staging.ini
+tulsie-staging.ini
+tekenjetuin-staging.ini
+
 [webserver]
-[database]
+[elasticsearch]
+[psql]
 "]
 	3 [label="idadi.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.ini
-[webserver]
+weblate-production.ini
+tukio-production.ini
+
+[tukio]
 "]
 	4 [label="propter.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.ini
+chelezo-production.ini
+shmira-production.ini
+
 [webserver]
+[nodejs]
 "]
 	5 [label="biblio.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.ini
+biblio-inventory.ini
+
 [web]
 [mysql]
 "]
 	6 [label="gati.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.ini
+tweedegolf-production.ini
+nww-production.ini
+
 [webserver]
-[nodejs]
-[ruby]
 "]
 	7 [label="xoras.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.ini
+xoras-inventory.ini
+
 [webserver]
 "]
 	8 [label="yetu.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.ini
+yetu-production.ini
+
 [webserver]
 "]
 	9 [label="sheria.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.ini
+hekkelman-production.ini
+
 [webserver]
 [elasticsearch]
 "]
 	10 [label="wangwa.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.ini
+pas-reform-preview.ini
+
 [webserver]
 [database]
 [elasticsearch]
@@ -67,7 +84,8 @@ tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.
 "]
 	11 [label="vunja.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.ini
+pas-reform-staging.ini
+
 [webserver]
 [database]
 [elasticsearch]
@@ -76,7 +94,8 @@ tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.
 "]
 	12 [label="askja.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.ini
+asp-production.ini
+
 [webserver]
 [ftpserver]
 [database]
@@ -84,7 +103,8 @@ tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.
 "]
 	13 [label="oppa.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.ini
+asp-staging.ini
+
 [webserver]
 [ftpserver]
 [database]
@@ -92,42 +112,43 @@ tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.
 "]
 	14 [label="jambo.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.ini
+jambo-testing.ini
+
 [webserver]
 "]
 	15 [label="najuma.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.inislash-production.ini
+slash-production.ini
+
 [webserver]
 [nodejs]
 "]
 	16 [label="heri.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.inislash-production.inijira-production.ini
+jira-production.ini
+
 [webserver]
 "]
 	17 [label="quorum.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.inislash-production.inijira-production.inimandhari-production.ini
+mandhari-production.ini
+
 [webserver]
 [database]
 [nodejs]
 "]
 	18 [label="taabu.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.inislash-production.inijira-production.inimandhari-production.initekenjetuin-production.ini
+tekenjetuin-production.ini
+
 [web]
 [elasticsearch]
 "]
 	19 [label="chafua.tgsrv.nl
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.inislash-production.inijira-production.inimandhari-production.initekenjetuin-production.ini
-[database]
-"]
-	20 [label="web
+tekenjetuin-production.ini
 
-tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.inibiblio-inventory.initweedegolf-production.inixoras-inventory.iniyetu-production.inihekkelman-production.inipas-reform-preview.inipas-reform-staging.iniasp-production.iniasp-staging.inijambo-testing.inislash-production.inijira-production.inimandhari-production.initekenjetuin-production.ini
-[backup]
+[database]
 "]
 	0 -> 1 [label="[database]
 "]
@@ -156,7 +177,5 @@ tulsie-production.initulsie-staging.iniweblate-production.inichelezo-production.
 	18 -> 19 [label="[psql]
 "]
 	18 -> 4 [label="[backup]
-"]
-	18 -> 20 [label="[production:children]
 "]
 }
