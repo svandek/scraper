@@ -10,7 +10,7 @@ from Filer import Filer
 
 # variables
 digraph = functools.partial(gv.Digraph, format='svg') 
-projectDir = '/home/sander/Projects/ansible/inventory/inventories/'
+projectDir = '/home/ss/Projects/inventory/inventories/'
 projects = Filer.projectRetriever(projectDir)
 srvNr = 0
 print '===================================================='

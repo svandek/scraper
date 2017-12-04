@@ -3,7 +3,7 @@ invExcludes = ['group_vars', 'host_vars']
 projectExcludes = ['updates', 'base', 'servers', 'logs', 'planviewer', '.git']     
 
 class Filer:
-    projectDir = '/home/sander/Projects/ansible/inventory/inventories/'
+    projectDir = '/home/ss/Projects/inventory/inventories/'
     fileExcludes = ['[prometheus-exporters]\n','[staging:children]\n', '[production:children]\n', '[preview:children]\n', '[testing:children]\n', '[elk:children]\n', '[current:children]\n']
     
     def __init__(self, project, inventory):

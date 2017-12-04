@@ -36,12 +36,12 @@ class Server:
         for add in addSrvs:
             indexPos = addSrvs.index(add)
             print 'indexPos:::',indexPos
-            print 'ADDROLES:',addRoles[indexPos]
+            print 'ADDROLES:',self.addRoles[indexPos]
             if add in serverList:
                 'draw connection to existing add'
                 srvPos = serverList.index(add)
                 print '!!!!!!!!!:',addRoles[indexPos]
-                self.connectionDrawer(self.srvNr, srvPos, self.addRoles[indexPos])
+                self.connectionDrawer(self.srvNr, srvPos, addRoles[indexPos])
             else:
                 print addRoles, addSrvs
                 print 'add:', add
@@ -50,7 +50,7 @@ class Server:
                 print 'addRoles: ', addRoles[indexPos]
                 newInstance = Server(add, self.addRoles[indexPos], '', '', project)
                 print 'draw add to ->', newInstance.srvNr 
-                self.connectionDrawer(self.srvNr, newInstance.srvNr, self.addRoles[indexPos])
+                self.connectionDrawer(self.srvNr, newInstance.srvNr, addRoles[indexPos])
         return     
 
     def serverDrawer(self, srvName, srvNr, srvRoles, projects):
