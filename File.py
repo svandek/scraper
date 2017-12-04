@@ -1,4 +1,4 @@
-class File:
+class Filer:
     projectDir = '/home/ss/Projects/inventory/inventories/'
     fileExcludes = ['[staging:children]\n', '[production:children]\n', '[preview:children]\n', '[testing:children]\n', '[elk:children]\n', '[current:children]\n']
     def _init_(self, project, inventory):
@@ -10,11 +10,26 @@ class File:
         self.addSrvs = []
         self.addRoles = []
         fileReader(project, inventory)
-        return self.srvName, self.srvRoles, self.addSrvs, self.addRoles, self.project   
+        return    
+
+    def getSrvName():
+        return self.srvName
+
+    def getSrvRoles():
+        return self.srvRoles
+
+    def getAddSrvs():
+        return self.addSrvs
+
+    def getAddRoles():
+        return self.addRoles
+
+    def getProject():
+        return self.project   
 
     def fileReader(project, inventory):
         # read provided file and save content
-        invFile = open(projectDir + project + '/' + inventory, 'r')
+        invFile = open(projectDir + '/' + project + '/' + inventory, 'r')
         lines = fp.readlines()
         self.srvName = lines[1]
         for line in lines:
@@ -34,7 +49,7 @@ class File:
                 del lines[0]       
         fp.close()
         self.project = project + '-' + inventory
-        return self.srvName, self.srvRoles, self.addSrvs, self.addRoles, self.project 
+        return  
 
     def isFileValid(project, inventory):
         # check wether file is empty or not

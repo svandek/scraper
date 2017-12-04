@@ -60,7 +60,7 @@ def invRetriever(projectDir, project):
 
 def fileIsValid(projectDir, project, inventory):
         # check wether file is empty or not
-        invFile = open(projectDir + project + '/' + inventory, 'r')
+        invFile = open(projectDir + '/' + project + '/' + inventory, 'r')
         lines = invFile.readlines()
         if len(lines[1]) > 1:
             return True

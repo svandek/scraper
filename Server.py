@@ -1,6 +1,6 @@
-# initials
-srvNr = 0
-# globals
+import itertools
+counter = itertools.count()
+
 serverList = []
 projectList = []
 drawServers = []
@@ -13,45 +13,66 @@ class Server:
     addSrvs = []
     addRoles = []
     projects = []
-
-    def _init_(self, srvName, srvRoles, addSrvs, addRoles, project):
+    
+    def __init__(self, srvName, srvRoles, addSrvs, addRoles, project):
         # sets attribute values
         self.srvName = srvName
-        self.srvNr += 1
-        self.srvRoles.append(srvRoles)
+        self.srvNr = next(counter)
+        self.srvRoles = srvRoles
         self.addSrvs.append(addSrvs)
         self.addRoles.append(addRoles)
         self.projects.append(project)
-
+        print 'srvNr: ',self.srvNr
         projectList.append(project)
         serverList.append(srvName)
-
+        print 'srvList: ',serverList
         # removes duplicate values
-        rolesChecker(srvRoles)
-        addsChecker(addSrvs, addRoles)
-        projectsChecker(projects)
+        self.rolesChecker(self.srvRoles)
+        self.addsChecker(self.addSrvs, self.addRoles)
+        self.projectsChecker(self.projects)
         
         # appends values to the draw arrays
-        serverDrawer(srvName, srvNr, srvRoles, projects)
+        self.serverDrawer(self.srvName, self.srvNr, self.srvRoles, self.projects)
         for add in addSrvs:
+            indexPos = addSrvs.index(add)
+            print 'indexPos:::',indexPos
+            print 'ADDROLES:',addRoles[indexPos]
             if add in serverList:
+                'draw connection to existing add'
                 srvPos = serverList.index(add)
-                connectionDrawer(srvNr, srvPos, addRoles)
+                print '!!!!!!!!!:',addRoles[indexPos]
+                self.connectionDrawer(self.srvNr, srvPos, self.addRoles[indexPos])
             else:
-                indexPos = addSrvs.index(add)
-                newInstance = Server(add, addRoles[indexPos], '', '', project)
-                connectionDrawer(srvNr, newInstance.srvNr, addRoles[indexPos])
+                print addRoles, addSrvs
+                print 'add:', add
+                
+                print 'indexPos:',indexPos
+                print 'addRoles: ', addRoles[indexPos]
+                newInstance = Server(add, self.addRoles[indexPos], '', '', project)
+                print 'draw add to ->', newInstance.srvNr 
+                self.connectionDrawer(self.srvNr, newInstance.srvNr, self.addRoles[indexPos])
         return     
 
     def serverDrawer(self, srvName, srvNr, srvRoles, projects):
         # appends the server to the drawServers array
-        self.drawServers.append((str(srvNr), {'label': srvName + '\n' + projects + '\n' + srvRoles}))
-        return self.drawServers
+        projectString = ''
+        roleString = ''
+        for project in projects:
+            projectString += project
+        for role in srvRoles:
+            roleString += role       
+        drawServers.append((str(srvNr), {'label': srvName + '\n' + projectString + '\n' + roleString}))
+        return drawServers
 
     def connectionDrawer(self, origin, destination, role):
         # appends all connections to be drawn to the drawConnections array
-        self.drawConnections.append(((str(origin), str(destination)), {'label': role}))
-        return self.drawConnections
+        print '++++++++++++++++++++++++++++++++++++++++++'
+        print 'orign: ',origin
+        print 'dest: ',destination
+        print 'role: ',role
+        print '++++++++++++++++++++++++++++++++++++++++++++'
+        drawConnections.append(((str(origin), str(destination)), {'label': role}))
+        return drawConnections
 
     def rolesChecker(self, srvRoles):
         # removes duplicate roles
@@ -115,4 +136,22 @@ class Server:
     def projectsUpdater(self, project):
         self.projects.append(project)
         projectsChecker(projects)
-        return self.projects    
+        return self.projects
+
+    @staticmethod
+    def getServers():
+        print drawServers
+        return drawServers
+
+    @staticmethod
+    def getConnections():
+        print drawConnections
+        return drawConnections
+
+    @staticmethod
+    def serverExists(srvName):
+        if srvName in serverList: 
+            print 'ERROR: SERVER EXISTS'
+            return True
+        else:
+            return False

@@ -5,31 +5,50 @@ import re
 # importing files
 import servertype
 import functions
-import Server
-import File
+from Server import Server
+from Filer import Filer
 
 # variables
 digraph = functools.partial(gv.Digraph, format='svg') 
-projectDir = '/home/ss/Projects/inventory/inventories/'
-
-projects = functions.projectRetriever(projectDir)
+projectDir = '/home/sander/Projects/ansible/inventory/inventories/'
+projects = Filer.projectRetriever(projectDir)
+srvNr = 0
+print '===================================================='
+print 'Projects: ',projects
 
 for project in projects:
-    inventories = functions.invRetriever(projectDir, project)
+    inventories = Filer.invRetriever(projectDir, project)
+    print 'Inventories: ',inventories
     for inventory in inventories:
-        if functions.fileIsValid(projectDir, project, inventory):    
-            obj = File(project, inventory)
-            srvName = obj.getSrvName()
-            srvRoles = obj.getSrvRoles()
-            addSrvs = obj.getAddSrvs()
-            addRoles = obj.getAddRoles()
-            pjt = obj.getProject()
- 
+        print 'Project: ',project
+        print 'Inventory: ',inventory
+        print '-------------------------------------------------'
+        if Filer.isFileValid(projectDir, project, inventory):
+            srvNr += 1   
+            objFile = Filer(project, inventory)
+            print 'File created: ',objFile
+            srvName = objFile.getSrvName()
+            print 'srvName: ',srvName
+            srvRoles = objFile.getSrvRoles()
+            print 'srvRoles: ',srvRoles
+            addSrvs = objFile.getAddSrvs()
+            print 'addSrvs: ',addSrvs
+            addRoles = objFile.getAddRoles()
+            print 'addRoles: ',addRoles
+            projectName = objFile.getProject()
+            print 'project: ',projectName
+            if Server.serverExists(srvName):
+                print 'update server'
+            else:    
+                objServer = Server(srvName, srvRoles, addSrvs, addRoles, projectName)
+                print 'Server created: ',objServer
+                print '===================================================='
+    
 g1 = functions.add_edges(
     functions.add_nodes(digraph(),
-        Server.drawServers
+        Server.getServers()
     ),    
-    Server.drawConnections
+    Server.getConnections()
 )
 
 g1 = functions.apply_styles(g1, servertype.web)
