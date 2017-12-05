@@ -6,6 +6,7 @@ projectList = []
 rolesList = []
 drawServers = []
 drawConnections = []
+connectionRememberer = []
 
 class Server:
     # attributes
@@ -27,23 +28,26 @@ class Server:
         serverList.append(srvName)
         rolesList.append(srvRoles)
         # removes duplicate values
-        self.rolesChecker(self.srvRoles)
+        Server.rolesChecker(self.srvRoles)
         self.addsChecker(self.addSrvs, self.addRoles)
         self.projectsChecker(self.projects)
-        
+        print self.srvNr, self.srvName, self.addSrvs, self.addRoles
         # appends values to the draw arrays
         self.serverDrawer(self.srvName, self.srvNr, self.srvRoles, project)
         for add in addSrvs:
             indexPos = addSrvs.index(add)
             if add in serverList:
                 srvPos = serverList.index(add)
-                self.connectionDrawer(self.srvNr, srvPos, addRoles[indexPos])
+                Server.connectionDrawer(self.srvNr, srvPos, addRoles[indexPos], project)
             else:
-                newInstance = Server(add, self.addRoles[indexPos], '', '', project)
-                self.connectionDrawer(self.srvNr, newInstance.srvNr, addRoles[indexPos])
+                newAdd = ['propter.tgsrv.nl\n']
+                newRole = ['[backup]\n']
+                newInstance = Server(add, addRoles[indexPos], newRole, newAdd, project)
+                Server.connectionDrawer(self.srvNr, newInstance.srvNr, addRoles[indexPos], project)
         return     
 
-    def serverDrawer(self, srvName, srvNr, srvRoles, projects):
+    @staticmethod
+    def serverDrawer(srvName, srvNr, srvRoles, projects):
         # appends the server to the drawServers array
         projectString = ''
         roleString = ''
@@ -53,21 +57,24 @@ class Server:
             roleString += role       
         drawServers.append((str(srvNr), {'label': srvName + '\n' + projectString + '\n' + roleString}))
         return drawServers
-
-    def connectionDrawer(self, origin, destination, role):
+    
+    @staticmethod
+    def connectionDrawer(origin, destination, role, project):
         # appends all connections to be drawn to the drawConnections array
-        drawConnections.append(((str(origin), str(destination)), {'label': role}))
-        print 'SERVER CONNECTIONS: ', drawConnections
+        rememberString = str(origin) + '-' + str(destination)            
+        if not rememberString in connectionRememberer:
+            drawConnections.append(((str(origin), str(destination)), {'label': role + project}))
+            connectionRememberer.append(rememberString)
         return drawConnections
 
-    def rolesChecker(self, srvRoles):
+    @staticmethod
+    def rolesChecker(srvRoles):
         # removes duplicate roles
         roles = []
         for role in srvRoles:
             if not role in roles:
                 roles.append(role)
-        self.srvRoles = roles
-        return self.srvRoles
+        return roles
 
     def projectsChecker(self, projects):
         # removes duplicate projects
@@ -102,26 +109,37 @@ class Server:
         return self.addSrvs, self.addRoles 
 
     @staticmethod
-    def serverUpdater(srvName, srvRoles, project):
+    def serverUpdater(srvName, srvRoles, addSrvs, addRoles, project):
         # appends additional values to attributes and removes duplicate values
         srvIndex = serverList.index(srvName)
         old_projects = projectList[srvIndex]
         old_roles = rolesList[srvIndex]
+        
+        for role in old_roles:
+            srvRoles.append(role)
+        
+        new_roles = Server.rolesChecker(srvRoles)
+        rolesList[srvIndex] = new_roles
+        projectList[srvIndex] = old_projects + project
         projectString = ''
-        oldRolesString = ''
-        newRolesString = ''
         roleString = ''
+        
         for pjt in old_projects:
             projectString += pjt
-        for role in old_roles:
-            oldRolesString += role    
-        for role in srvRoles:
-            newRolesString += role
-        roleString = oldRolesString = newRolesString    
+        for role in new_roles:
+            roleString += role       
+        
         projectString += project
-        print 'ROLESTRING: ',roleString
-        print 'PROJECTSTRING',projectString 
         drawServers[srvIndex] = (str(srvIndex), {'label': srvName + '\n' + projectString + '\n' + roleString})
+      
+        for add in addSrvs:
+            indexPos = addSrvs.index(add)
+            if add in serverList:
+                srvPos = serverList.index(add)
+                Server.connectionDrawer(srvIndex, srvPos, addRoles[indexPos], project)       
+            else:
+                newInstance = Server(add, addRoles[indexPos], '', '', project)
+                Server.connectionDrawer(srvIndex, newInstance.srvNr, addRoles[indexPos], project)
         return 
 
     def srvRolesUpdater(self, srvRoles):
@@ -151,9 +169,13 @@ class Server:
         return drawConnections
 
     @staticmethod
+    def getSrvID(srvName):
+        srvID = serverList.index(srvName)
+        return srvID
+
+    @staticmethod
     def serverExists(srvName):
-        if srvName in serverList: 
-            print 'ERROR: SERVER EXISTS'
+        if srvName in serverList:
             return True
         else:
             return False

@@ -10,15 +10,14 @@ from Filer import Filer
 
 # variables
 digraph = functools.partial(gv.Digraph, format='svg') 
-projectDir = '/home/ss/Projects/inventory/inventories/'
+projectDir = '/home/sander/Projects/ansible/inventory/inventories/'
 projects = Filer.projectRetriever(projectDir)
-srvNr = 0
 
+# Main
 for project in projects:
     inventories = Filer.invRetriever(projectDir, project)
     for inventory in inventories:
-        if Filer.isFileValid(projectDir, project, inventory):
-            srvNr += 1   
+        if Filer.isFileValid(projectDir, project, inventory):  
             objFile = Filer(project, inventory)
             srvName = objFile.getSrvName()
             srvRoles = objFile.getSrvRoles()
@@ -26,12 +25,12 @@ for project in projects:
             addRoles = objFile.getAddRoles()
             projectName = objFile.getProject()
             if Server.serverExists(srvName):
-                Server.serverUpdater(srvName, srvRoles, projectName)
-                print 'serverUpdater call'
-                # update server
+                if not addSrvs:
+                    addSrvs = ''
+                    addRoles = ''
+                Server.serverUpdater(srvName, srvRoles, addSrvs, addRoles, projectName)
             else:    
                 objServer = Server(srvName, srvRoles, addSrvs, addRoles, projectName)
-    
 g1 = functions.add_edges(
     functions.add_nodes(digraph(),
         Server.getServers()
@@ -40,7 +39,7 @@ g1 = functions.add_edges(
 )
 
 g1 = functions.apply_styles(g1, servertype.web)
-g1.render('img/g2')
+g1.render('img/g1')
 
 
 

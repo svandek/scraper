@@ -1,0 +1,460 @@
+digraph {
+	node [color=black fillcolor=lightgray fontcolor=black fontname=Helvetica shape=square style=filled]
+	edge [arrowhead=open color=black fontcolor=black fontname=Courier fontsize=12 style=dashed]
+	0 [label="dahari.tgsrv.nl
+
+qualitytime-staging.ini
+qualitytime-production.ini
+tekenjetuin-staging.ini
+tulsie-staging.ini
+hekkelman-staging.ini
+oss-production.ini
+
+[webserver]
+[database]
+[elasticsearch]
+[psql]
+"]
+	1 [label="propter.tgsrv.nl
+
+qualitytime-staging.ini
+shmira-production.ini
+client-dashboard-production.ini
+chelezo-production.ini
+release-notes-production.ini
+
+[webserver]
+[nodejs]
+[backup]
+[backup]
+"]
+	2 [label="[backup]
+
+qualitytime-staging.ini
+
+propter.tgsrv.nl
+"]
+	3 [label="quorum.tgsrv.nl
+
+mandhari-production.ini
+
+[webserver]
+[database]
+[nodejs]
+"]
+	4 [label="malimu.tgsrv.nl
+
+productprices-production.ini
+rct-production.ini
+tulsie-production.ini
+quiz-production.ini
+piep-production.ini
+ixp-production.ini
+boekenquiz-production.ini
+localhero-production.ini
+
+[webserver]
+[elasticsearch]
+[nodejs]
+"]
+	5 [label="idadi.tgsrv.nl
+
+tukio-production.ini
+docs-production.ini
+weblate-production.ini
+
+[webserver]
+[tukio]
+"]
+	6 [label="jambo.tgsrv.nl
+
+jambo-testing.ini
+
+[webserver]
+"]
+	7 [label="eleka.tgsrv.nl
+
+shmira-production.ini
+postgresql-production.ini
+
+[database]
+[datbse]
+"]
+	8 [label="chafua.tgsrv.nl
+
+tekenjetuin-staging.ini
+
+[database]
+"]
+	9 [label="taabu.tgsrv.nl
+
+tekenjetuin-production.ini
+
+[web]
+[elasticsearch]
+"]
+	10 [label="oppa.tgsrv.nl
+
+asp-staging.ini
+
+[webserver]
+[ftpserver]
+[database]
+[elasticsearch]
+"]
+	11 [label="askja.tgsrv.nl
+
+asp-production.ini
+
+[webserver]
+[ftpserver]
+[database]
+[elasticsearch]
+"]
+	12 [label="flog.tgsrv.nl
+
+logs-production.ini
+
+[logstash]
+[elasticsearch]
+[kibana]
+[prometheus]
+"]
+	13 [label="yetu.tgsrv.nl
+
+yetu-production.ini
+
+[webserver]
+"]
+	14 [label="xoras.tgsrv.nl
+
+xoras-inventory.ini
+
+[webserver]
+"]
+	15 [label="sheria.tgsrv.nl
+
+hekkelman-production.ini
+
+[webserver]
+[elasticsearch]
+"]
+	16 [label="najuma.tgsrv.nl
+
+slash-production.ini
+
+[webserver]
+[nodejs]
+"]
+	17 [label="web01.staging.planpreview.nl
+
+planviewer-staging.ini
+
+[proxy]
+[web]
+[elasticsearch]
+"]
+	18 [label="db01.staging.planpreview.nl
+
+planviewer-staging.ini
+
+[beanstalkd]
+"]
+	19 [label="cache01.staging.planpreview.nl
+
+planviewer-staging.ini
+
+[mapcache]
+"]
+	20 [label="public01.staging.planpreview.nl
+
+planviewer-staging.ini
+
+[loadbalancer]
+"]
+	21 [label="proxy01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[proxy]
+"]
+	22 [label="web01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[web]
+"]
+	23 [label="search01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[elasticsearch]
+"]
+	24 [label="db01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[beanstalkd]
+"]
+	25 [label="cache02.servers.planviewer.nl
+
+planviewer-production.ini
+
+[mapcache]
+"]
+	26 [label="public01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[loadbalancer]
+"]
+	27 [label="files01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[fileserver]
+"]
+	28 [label="monitoring01.servers.planviewer.nl
+
+planviewer-production.ini
+
+[monitoring]
+"]
+	29 [label="web01.test.planviewer.nl
+
+planviewer-test.ini
+
+[proxy]
+[web]
+[elasticsearch]
+"]
+	30 [label="db01.test.planviewer.nl
+
+planviewer-test.ini
+
+[beanstalkd]
+"]
+	31 [label="cache01.test.planviewer.nl
+
+planviewer-test.ini
+
+[mapcache]
+"]
+	32 [label="public01.test.planviewer.nl
+
+planviewer-test.ini
+
+[loadbalancer]
+"]
+	33 [label="biblio.tgsrv.nl
+
+biblio-inventory.ini
+
+[web]
+[mysql]
+"]
+	34 [label="heri.tgsrv.nl
+
+jira-production.ini
+
+[webserver]
+"]
+	35 [label="gati.tgsrv.nl
+
+research-panel-production.ini
+tweedegolf-production.ini
+nww-production.ini
+
+[webserver]
+[nodejs]
+[ruby]
+"]
+	36 [label="vunja.tgsrv.nl
+
+pas-reform-staging.ini
+
+[webserver]
+[database]
+[elasticsearch]
+[frontend]
+[backend]
+"]
+	37 [label="wangwa.tgsrv.nl
+
+pas-reform-preview.ini
+
+[webserver]
+[database]
+[elasticsearch]
+[frontend]
+[backend]
+"]
+	2 -> 2 [label="propter.tgsrv.nl
+qualitytime-staging.ini
+"]
+	1 -> 2 [label="propter.tgsrv.nl
+qualitytime-staging.ini
+"]
+	0 -> 1 [label="[backup]
+qualitytime-staging.ini
+"]
+	3 -> 1 [label="[backup]
+mandhari-production.ini
+"]
+	4 -> 1 [label="[backup]
+productprices-production.ini
+"]
+	5 -> 1 [label="[backup]
+tukio-production.ini
+"]
+	6 -> 1 [label="[backup]
+jambo-testing.ini
+"]
+	1 -> 7 [label="[database]
+shmira-production.ini
+"]
+	7 -> 1 [label="[backup]
+postgresql-production.ini
+"]
+	4 -> 7 [label="[database]
+rct-production.ini
+"]
+	0 -> 8 [label="[database]
+tekenjetuin-staging.ini
+"]
+	9 -> 8 [label="[psql]
+tekenjetuin-production.ini
+"]
+	9 -> 1 [label="[backup]
+tekenjetuin-production.ini
+"]
+	10 -> 1 [label="[backup]
+asp-staging.ini
+"]
+	11 -> 1 [label="[backup]
+asp-production.ini
+"]
+	5 -> 7 [label="[database]
+weblate-production.ini
+"]
+	12 -> 1 [label="[backup]
+logs-production.ini
+"]
+	13 -> 1 [label="[backup]
+yetu-production.ini
+"]
+	14 -> 1 [label="[backup]
+xoras-inventory.ini
+"]
+	15 -> 7 [label="[database]
+hekkelman-production.ini
+"]
+	15 -> 1 [label="[backup]
+hekkelman-production.ini
+"]
+	16 -> 7 [label="[database]
+slash-production.ini
+"]
+	16 -> 1 [label="[backup]
+slash-production.ini
+"]
+	18 -> 2 [label="propter.tgsrv.nl
+planviewer-staging.ini
+"]
+	17 -> 18 [label="[beanstalkd]
+planviewer-staging.ini
+"]
+	19 -> 2 [label="propter.tgsrv.nl
+planviewer-staging.ini
+"]
+	17 -> 19 [label="[mapcache]
+planviewer-staging.ini
+"]
+	20 -> 2 [label="propter.tgsrv.nl
+planviewer-staging.ini
+"]
+	17 -> 20 [label="[loadbalancer]
+planviewer-staging.ini
+"]
+	22 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 22 [label="[web]
+planviewer-production.ini
+"]
+	23 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 23 [label="[elasticsearch]
+planviewer-production.ini
+"]
+	24 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 24 [label="[beanstalkd]
+planviewer-production.ini
+"]
+	25 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 25 [label="[mapcache]
+planviewer-production.ini
+"]
+	26 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 26 [label="[loadbalancer]
+planviewer-production.ini
+"]
+	27 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 27 [label="[fileserver]
+planviewer-production.ini
+"]
+	28 -> 2 [label="propter.tgsrv.nl
+planviewer-production.ini
+"]
+	21 -> 28 [label="[monitoring]
+planviewer-production.ini
+"]
+	30 -> 2 [label="propter.tgsrv.nl
+planviewer-test.ini
+"]
+	29 -> 30 [label="[beanstalkd]
+planviewer-test.ini
+"]
+	31 -> 2 [label="propter.tgsrv.nl
+planviewer-test.ini
+"]
+	29 -> 31 [label="[mapcache]
+planviewer-test.ini
+"]
+	32 -> 2 [label="propter.tgsrv.nl
+planviewer-test.ini
+"]
+	29 -> 32 [label="[loadbalancer]
+planviewer-test.ini
+"]
+	33 -> 1 [label="[backup]
+biblio-inventory.ini
+"]
+	34 -> 7 [label="[database]
+jira-production.ini
+"]
+	34 -> 1 [label="[backup]
+jira-production.ini
+"]
+	35 -> 7 [label="[database]
+research-panel-production.ini
+"]
+	35 -> 1 [label="[backup]
+research-panel-production.ini
+"]
+	36 -> 1 [label="[backup]
+pas-reform-staging.ini
+"]
+	37 -> 1 [label="[backup]
+pas-reform-preview.ini
+"]
+}
